@@ -1,38 +1,64 @@
-# 🌤️ Weather App - Beautiful React Weather Dashboard
+# 🧪 Feedback API Studio – REST Playground
 
-A stunning, fully-functional weather application built with React and Vite. Features smooth animations, glassmorphic design, and real-time weather information with an impressive user interface.
+A visually rich single-page React app that acts as a front-end **playground for REST APIs**. It interacts with a `feedbacks` endpoint and demonstrates real **GET, POST, PUT, DELETE** operations with a modern, animated UI.
 
-## ✨ Features
+Expected backend endpoints:
+const API_BASE = 'https://rest-apis-demo.onrender.com/feedbacks';
+- `GET    https://rest-apis-demo.onrender.com/feedbacks`
+- `POST   https://rest-apis-demo.onrender.com/feedbacks`
+- `PUT    https://rest-apis-demo.onrender.com/feedbacks/:id`
+- `DELETE https://rest-apis-demo.onrender.com/feedbacks/:id`
 
-### 🌡️ Weather Information
-- **Current Weather**: Temperature, conditions, and "feels like" temperature
-- **Weather Stats**: Wind speed, humidity, pressure, and visibility
-- **Temperature Units**: Toggle between Celsius and Fahrenheit
-- **City Search**: Search for any city worldwide
-- **Dynamic Backgrounds**: Different gradient backgrounds for each weather condition
+---
 
-### 📊 Forecasts
-- **Hourly Forecast**: 8-hour detailed forecast with time-based weather icons
-- **7-Day Forecast**: Weekly forecast with high/low temperatures
-- **Additional Info**: Sunrise, sunset, UV index, and air quality data
+## ✨ What this app does
 
-### 🎨 Visual Features
-- **Glassmorphism Design**: Modern frosted glass effect on all cards
-- **Smooth Animations**: 
-  - Floating background orbs
-  - Rain animation for rainy weather
-  - Lightning effects for thunderstorms
-  - Hover states and micro-interactions
-  - Staggered entrance animations
-- **Responsive Design**: Perfect on mobile, tablet, and desktop
-- **Weather-Specific Themes**: Dynamic backgrounds that change with weather conditions
+### 🔍 GET – View all feedbacks
 
-### 🚀 Technical Features
-- **Pure React + CSS**: No external animation libraries required
-- **Component-Based Architecture**: Clean, maintainable code
-- **State Management**: React hooks for all interactive features
-- **Performance Optimized**: Smooth 60fps animations
-- **Deployment Ready**: Build and deploy anywhere
+- Fetches all feedback items from `/feedbacks` on page load.
+- Displays each feedback as a card with:
+  - `id`
+  - `name`
+  - `age`
+  - `rating` (out of 10)
+  - `description`
+- "Refresh" button to re-fetch data from the API.
+
+### ➕ POST – Create new feedback
+
+- Form fields:
+  - `name`
+  - `age`
+  - `rating` (0–10)
+  - `description`
+- Sends a `POST` request to `/feedbacks` with body like:
+
+  ```json
+  {
+    "name": "Abishek",
+    "age": 24,
+    "rating": 8,
+    "description": "Dangerous if batted till end of powerplay"
+  }
+  ```
+
+- The backend automatically assigns the `id` (e.g. `1`, `2`, ...).
+- After a successful POST, the app refreshes the list and clears the form.
+
+### ✏️ PUT – Update existing feedback
+
+- You can either:
+  - Click **"Edit via PUT"** on any card in the GET view to load it into the form, or
+  - Manually enter an `id` and values in the PUT tab.
+- Editable fields: `name`, `age`, `rating`, `description`.
+- Sends a `PUT` request to `/feedbacks/:id` and refreshes the list.
+- The updated card is briefly **highlighted** so you see what changed.
+
+### �️ DELETE – Remove a feedback by id
+
+- Simple form to enter an `id`.
+- Sends a `DELETE` request to `/feedbacks/:id`.
+- On success, refreshes the list and clears the field.
 
 ## 🛠️ Tech Stack
 
