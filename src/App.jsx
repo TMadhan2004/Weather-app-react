@@ -159,9 +159,7 @@ function App() {
             <h1>Feedback API Studio</h1>
             <p>
               Visual playground for <code>GET</code>, <code>POST</code>,{' '}
-              <code>PUT</code> and <code>DELETE</code> on
-              <span className="endpoint"> http://localhost:3000/feedbacks</span>.
-              Start the JSON server separately and interact in real time.
+              <code>PUT</code> and <code>DELETE</code> 
             </p>
           </div>
           <div className="rest-endpoint-card">
